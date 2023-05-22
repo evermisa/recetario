@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Recetario"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDv_nt9zesBi2toIP7c2ta-41kRi9WGkVg" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,6 +28,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailRecipeActivity"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".MapViewer"
             android:exported="true">
 
         </activity>

@@ -84,16 +84,16 @@ val jsonList =
         var textView: TextView = findViewById(R.id.textView)
         val request = Request.Builder()
             .url("http://demo6224271.mockable.io/")
-            .method("POST",null)
+            //.method("POST",null)
             .build()
 
         Toast.makeText(applicationContext,"La tostada",Toast.LENGTH_LONG).show()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                textView.text = "${e.message}"
+                //textView.text = "${e.message}"
             }
             override fun onResponse(call: Call, response: Response) {
-                textView.text = "${response.code()}"
+                //textView.text = "${response.code()}"
                 //textView.text = "${response.body()?.string()}"
             }
         })
@@ -108,6 +108,7 @@ val jsonList =
 
         //textView.text = "${gson.toJson(recipes)}"
         //recipeListRecycler?.adapter = RecipeListItemAdapter(recipes)
+
         var searchBar: EditText = findViewById(R.id.editTextText)
         searchBar.addTextChangedListener(object : TextWatcher {
 
@@ -128,6 +129,10 @@ val jsonList =
 
             }
         })
+
+        val intent = Intent(this, DetailRecipeActivity()::class.java)
+        //intent.putExtra(FLOWER_ID, flower.id)
+        startActivity(intent)
     }
 
     private fun adapterOnClick(s: RecipeModel) {
