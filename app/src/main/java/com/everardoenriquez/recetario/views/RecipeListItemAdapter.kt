@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.everardoenriquez.recetario.R
 import com.example.testkot.Models.RecipeModel
 
-class RecipeListItemAdapter(private val recipeList:List<RecipeModel>,
+class RecipeListItemAdapter(private var recipeList:List<RecipeModel>,
                             private val onClick: (RecipeModel) -> Unit) :
     RecyclerView.Adapter<RecipeListItemAdapter.RecipeViewHolder>() {
 //class RecipeListItemAdapter(private val onClick: (RecipeModel) -> Unit) :
@@ -30,6 +30,15 @@ class RecipeListItemAdapter(private val recipeList:List<RecipeModel>,
         //val recipe = getItem(position)
         //holder.bind(recipe)
         holder.bind(recipeList[position])
+    }
+
+    fun onFilter(recipeList:List<RecipeModel>) {
+        this.recipeList = recipeList
+        notifyDataSetChanged()
+    }
+
+    fun notify11() {
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
@@ -50,6 +59,8 @@ class RecipeListItemAdapter(private val recipeList:List<RecipeModel>,
         }
 
         fun bind(recipe:RecipeModel) {
+            currentRecipe = recipe
+
             recipeName.text = recipe.recipeName
             val filePhoto = itemView.getResources().getIdentifier("pizza", "drawable","com.everardoenriquez.recetario")
             recipeImage.setImageResource(filePhoto)
