@@ -17,6 +17,7 @@ class MapViewer : AppCompatActivity(), OnMapReadyCallback  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.map_viewer)
 
+        //Obtención de valores de latitude y longitud para paso posterior al mapa
         latitude = intent.getDoubleExtra("Latitude", 0.0)
         longitude = intent.getDoubleExtra("Longitude",0.0)
 
@@ -25,6 +26,7 @@ class MapViewer : AppCompatActivity(), OnMapReadyCallback  {
     }
 
     override fun onMapReady(p0: GoogleMap) {
+        //Se asginan las coordenadas obtenidas al mapa y se agrega un marcador
         var coordinates = LatLng(latitude,longitude)
         p0.addMarker(MarkerOptions().position(coordinates).title("Coords"))
         p0.moveCamera(CameraUpdateFactory.newLatLng(coordinates))

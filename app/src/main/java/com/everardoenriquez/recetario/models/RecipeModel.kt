@@ -1,8 +1,6 @@
 package com.example.testkot.Models
 
-import android.graphics.drawable.Drawable
 import java.io.Serializable
-import java.util.*
 
 data class RecipeModel(
     var id: Int,

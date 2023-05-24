@@ -15,29 +15,22 @@ import com.example.testkot.Models.RecipeModel
 class RecipeListItemAdapter(private var recipeList:List<RecipeModel>,
                             private val onClick: (RecipeModel) -> Unit) :
     RecyclerView.Adapter<RecipeListItemAdapter.RecipeViewHolder>() {
-//class RecipeListItemAdapter(private val onClick: (RecipeModel) -> Unit) :
-  //  ListAdapter<RecipeModel, RecipeListItemAdapter.ViewHolder>(RecipeCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.recipe_list_item, parent, false)
 
+
         return RecipeViewHolder(view, onClick)
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-        //val recipe = getItem(position)
-        //holder.bind(recipe)
         holder.bind(recipeList[position])
     }
 
     fun onFilter(recipeList:List<RecipeModel>) {
         this.recipeList = recipeList
-        notifyDataSetChanged()
-    }
-
-    fun notify11() {
         notifyDataSetChanged()
     }
 
@@ -49,6 +42,7 @@ class RecipeListItemAdapter(private var recipeList:List<RecipeModel>,
         private val recipeImage: ImageView = itemView.findViewById(R.id.recipeListItemPhoto)
         private val recipeName: TextView = itemView.findViewById(R.id.recipeListItemName)
         private var currentRecipe: RecipeModel? = null
+        val imageType = "drawable"
 
         init {
             itemView.setOnClickListener {
@@ -62,18 +56,10 @@ class RecipeListItemAdapter(private var recipeList:List<RecipeModel>,
             currentRecipe = recipe
 
             recipeName.text = recipe.recipeName
-            val filePhoto = itemView.getResources().getIdentifier("pizza", "drawable","com.everardoenriquez.recetario")
+            val filePhoto = itemView.getResources().getIdentifier(
+                recipe.imageName, imageType,itemView.context.packageName
+            )
             recipeImage.setImageResource(filePhoto)
         }
     }
 }
-/*
-object RecipeCallback : DiffUtil.ItemCallback<RecipeModel>() {
-    override fun areItemsTheSame(oldItem: RecipeModel, newItem: RecipeModel): Boolean {
-        return oldItem == newItem
-    }
-
-    override fun areContentsTheSame(oldItem: RecipeModel, newItem: RecipeModel): Boolean {
-        return oldItem.recipeName == newItem.recipeName
-    }
-}*/
