@@ -1,6 +1,6 @@
 # Introducción
 
-Aplicación elaborada para Code "Challenge Yape – Mobile Developer" hecha en kotlin por Everardo Misael Enriquez Rodriguez
+Aplicación elaborada para "Code Challenge Yape – Mobile Developer" hecha en kotlin por Everardo Misael Enriquez Rodriguez
 
 ## Contenido
 
@@ -8,7 +8,7 @@ Este programa cuenta con 3 pantallas principales las cuáles son:
 
 ### Home
 
-En esta pantalla es donde se muestra el listado de recetas así como un buscador que filtra por el nombre del platillo o los ingredientes que la componen.
+En esta pantalla es donde se muestra el listado de recetas, así como un buscador que filtra por el nombre del platillo o los ingredientes que la componen.
 
 Para el funcionamiento de está pantalla primero cree una lista de objetos "RecipeModel" el cuál almacenará todas las recetas obtenidas.
 
@@ -37,7 +37,7 @@ override fun onResponse(call: Call, response: Response) {
 }
 ```
 
-Teniendo estos datos almacenados los podremos filtrar a traves de una función personalizada en el adapter, en esté caso tomaremos 2 valores para hacer la busqueda y el filtrado, que son el nombre del platillo y los ingredientes del mismo
+Teniendo estos datos almacenados los podremos filtrar a través de una función personalizada en el adapter, en este caso tomaremos 2 valores para hacer la búsqueda y el filtrado, que son el nombre del platillo y los ingredientes de este
 
 ```kotlin
 var recipeFilter: List<RecipeModel> = recipes.filter {
@@ -80,7 +80,7 @@ Para está pantalla utilizamos un fragment en el xml que nos permita colocar un 
     map:layout_constraintTop_toBottomOf="@+id/title" />
 ```
 
-Y por último, con los datos obtenidos del objeto en la pantalla anterior, encontramos las coordenadas y las pasamos al programa con el siguiente código
+Por último, con los datos obtenidos del objeto en la pantalla anterior, encontramos las coordenadas y las pasamos al programa con el siguiente código
 
 ```kotlin
 override fun onMapReady(p0: GoogleMap) {
